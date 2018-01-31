@@ -28,9 +28,11 @@ In order to access this follow the next instructions:
 
 - Create a [GitHub](https://github.com) account
 - Log into your personal account
-- Go to [https://github.com/darrenvong/shefcodefirst-python](https://github.com/darrenvong/shefcodefirst-python) and click on the ![fork](./assets/Fork.gif) button located at the top right corner of the webpage
-- Open GitKraken and clone the repository to your local computer (see gif below)
-![clone](./assets/clone_gitkraken.gif)
+- Go to [https://github.com/darrenvong/shefcodefirst-python](https://github.com/darrenvong/shefcodefirst-python),
+click on the green "clone or download" button and copy the URL in the box.
+- Open GitKraken and click on the folder icon on the top left to bring up the **Repository Management** dialog.
+- Click **Clone**, **Clone with URL** and paste the URL in the box. Choose the "Where to clone to" in a
+location that's easily accessible to you (e.g. `/Users/Documents` or similar).
 
 You should have now a copy of the main repository!!!! 🤓🎉🎈
 
