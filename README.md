@@ -1,10 +1,5 @@
-# shefcodefirst-python-code
-Code resources for the Code First Girls Python Course in Sheffield.
-
 <img src='./assets/CFG-logo.png' width='300px'>
 <img src='./assets/sheffield.png' width='300px'>
-
-
 
 # Code First Girls: Advanced Python course at the University of Sheffield
 
