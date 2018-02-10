@@ -29,8 +29,9 @@ def add_two_number_from_args(number1=0, number2=0):
 add_two_number_from_args()
 add_two_number_from_args(3)
 add_two_number_from_args(6, 5)
+
 # With keyword argument, you can even call the function without passing the arguments in
-# order, like so:
+# order (by using the name of the arguments) as shown below:
 add_two_number_from_args(number2=5, number1=6)
 
 
