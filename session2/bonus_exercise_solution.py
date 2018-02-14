@@ -61,4 +61,5 @@ def guess_my_number(answer):
             print(f"Well done! You guessed {answer} correctly!")
             correct_guess = True
 
+# See for yourself what happens when you guess anything above or below 62!
 guess_my_number(62)
