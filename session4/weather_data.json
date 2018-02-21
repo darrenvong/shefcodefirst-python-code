@@ -1,0 +1,9 @@
+{
+  "data": [
+    {"description":"light intensity drizzle", "temperature": 5, "name":"London"},
+    {"description":"clear sky", "temperature": 16, "name":"New York"},
+    {"description":"partly cloudy", "temperature": 26, "name":"Melbourne"},
+    {"description":"clear sky", "temperature": -4, "name":"Prague"}
+    {"description":"cloudy", "temperature": 1, "name":"Vancouver"}
+  ]
+}
