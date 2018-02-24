@@ -11,33 +11,31 @@ Note that in order to use the various functions here you have to authenticate fi
 
 """
 
-import tweepy
-import yaml
 import os
-
+import tweepy
+import config
 
 # This will load the configuration variables for the API's
-def get_config():
-    """This function checks if there is a configuration file
-    and if so loads the keys stored in it. Note the config file can have
-    extension .py, .ini. yaml .json
-    The method to access it should be changed accordingly to the
-    type of file you have in your project"""
-    if not os.path.isfile('config.yml'):
-        print('No config file found, make sure you have one')
-    else:
-        with open("config.yml", 'r') as ymlfile:
-            keys = yaml.load(ymlfile)
+# def get_config():
+#     """This function checks if there is a configuration file
+#     and if so loads the keys stored in it. Note the config file can have
+#     extension .py, .ini. yaml .json
+#     The method to access it should be changed accordingly to the
+#     type of file you have in your project"""
+#     if not os.path.isfile('config.yml'):
+#         print('No config file found, make sure you have one')
+#     else:
+#         with open("config.yml", 'r') as ymlfile:
+#             keys = yaml.load(ymlfile)
 
-    return keys
+#     return keys
 
 
 def authenticate():
     """This function will use Twitter's app keys provided in the config file
     to authenticate the user if successful, the login will be displayed on the screen"""
-    config = get_config()
-    auth = tweepy.OAuthHandler(config['twitter']['consumer_key'],config['twitter']['consumer_secret'])
-    auth.set_access_token(config['twitter']['access_token'],config['twitter']['access_secret'])
+    auth = tweepy.OAuthHandler(os.environ['twitter_consumer_key'],os.environ['twitter_consumer_secret'])
+    auth.set_access_token(os.environ['twitter_access_token'],os.environ['twitter_access_secret'])
 
     twitter_api = tweepy.API(auth)
 
@@ -62,6 +60,7 @@ def stalker(victim, no = 50):
     """The user needs to provide a Twitter handle e.g. @ixek to
     query the tweets for that user. If no number is provided
     the query will retrieve the last 50 tweets"""
+    twitter = authenticate()
     tweets = twitter.user_timeline(screen_name=victim, count=no)
     print("Number of tweets extracted: {}.\n".format(len(tweets)))
     return tweets
@@ -80,6 +79,7 @@ def post_tweet(status):
     you need to call the function with a valid string. Note you can also
     add emojis. E.g
     post_status("Python is awesome") """
+    twitter = authenticate()
     twitter.update_status(status=status)
 
 
@@ -87,7 +87,6 @@ def see_timeline(no):
     """This function acts as a spy on your own timeline. When used it will
     collect all the visible Tweets in your timeline until it reaches the specified
     limit. The tweets will be printed on the terminal as they are being collected"""
+    twitter = authenticate()
     for tweet in tweepy.Cursor(twitter.home_timeline).items(no):
-        print("\n {} tweeted by {}".format(status.text, status.user.name))
-
-
+        print("\n {} tweeted by {}".format(tweet.text, tweet.user.name))

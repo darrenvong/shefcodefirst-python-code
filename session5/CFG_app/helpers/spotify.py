@@ -12,10 +12,13 @@ authorisation from the user. All of the steps are detailed here.
 
 """
 
+import os
+
 # importing Requests: HTTP for Humans - installed previously
 import requests
-import yaml
+
 import json
+import config
 
 # ******* All of the needed URLS and functions to use the Spotify API ****
 
@@ -53,93 +56,90 @@ SHOW_DIALOG_str = str(SHOW_DIALOG_bool).lower()
 # https://developer.spotify.com/web-api/authorization-guide/ has all the details
 
 # Client keys
-with open("config.yml", 'r') as ymlfile:
-        config = yaml.load(ymlfile)
+# with open("config.yml", 'r') as ymlfile:
+#         config = yaml.load(ymlfile)
 
 # retrieve the keys from the config data
-client_id = config['spotify']['client_id']
-client_secret = config['spotify']['client_secret']
+client_id = os.environ['spotify_client_id']
+client_secret = os.environ['spotify_client_secret']
 
-def get_auth(REDIRECT_URI = REDIRECT_URI, client_id = client_id,
-             SPOTIFY_AUTH_URL = SPOTIFY_AUTH_URL):
+def get_auth(REDIRECT_URI=REDIRECT_URI, client_id=client_id,
+             SPOTIFY_AUTH_URL=SPOTIFY_AUTH_URL):
 
-        auth_vars = {'response_type': 'code',
-                             'redirect_uri': REDIRECT_URI,
-                             'client_id': client_id}
+    auth_vars = {'response_type': 'code',
+                 'redirect_uri': REDIRECT_URI,
+                 'client_id': client_id}
 
-        AUTH_URL = requests.get(SPOTIFY_AUTH_URL, auth_vars)
+    AUTH_URL = requests.get(SPOTIFY_AUTH_URL, auth_vars)
 
-        return AUTH_URL
+    return AUTH_URL
 
-def auth_spotify(client_id = client_id, redirect_uri = REDIRECT_URI):
-        """This function will handle the authorisation for
-        Spotify API. It will make use of the authorisation
-        callback """
+def auth_spotify(client_id=client_id, redirect_uri=REDIRECT_URI):
+    """This function will handle the authorisation for
+    Spotify API. It will make use of the authorisation
+    callback """
+
+    auth_vars = {'response type': 'code',
+                 'redirect_uri': redirect_uri,
+                 'client_id': client_id}
+
+    endpoint = "https://accounts.spotify.com/authorize"
+
+    response = requests.get(endpoint, params=auth_vars)
+
+    return response.url
 
 
-        auth_vars = {'response type': 'code',
-                     'redirect_uri': redirect_uri,
-                     'client_id': client_id}
+def authorize_spotify(auth_token, client_id=client_id, client_secret=client_secret,
+                      REDIRECT_URI=REDIRECT_URI, SPOTIFY_TOKEN_URL=SPOTIFY_TOKEN_URL):
+    """Auth Step 4: Requests refresh and access tokens"""
 
-        endpoint = "https://accounts.spotify.com/authorize"
+    code_payload = {
+        "grant_type": "authorization_code",
+        "code": auth_token,
+        "redirect_uri": REDIRECT_URI,
+        "client_id": client_id,
+        "client_secret": client_secret
+    }
 
-        response = requests.get(endpoint, params = auth_vars)
+    # Auth Step 5: tokens are returned to the app
+    post_request = requests.post(SPOTIFY_TOKEN_URL, data=code_payload)
 
-        return response.url
+    # convert to json
+    response_data = json.loads(post_request.text)
+    access_token = response_data['access_token']
 
+    auth_header = {"Authorization": "Bearer {}".format(access_token)}
 
-def authorize_spotify(auth_token, client_id = client_id, client_secret = client_secret,
-                      REDIRECT_URI = REDIRECT_URI, SPOTIFY_TOKEN_URL = SPOTIFY_TOKEN_URL):
-        """Auth Step 4: Requests refresh and access tokens"""
-
-        code_payload = {
-                "grant_type": "authorization_code",
-                "code": auth_token,
-                "redirect_uri": REDIRECT_URI,
-                "client_id": client_id,
-                "client_secret": client_secret
-        }
-
-        # Auth Step 5: tokens are returned to the app
-        post_request = requests.post(SPOTIFY_TOKEN_URL, data = code_payload)
-
-        # convert to json
-        response_data = json.loads(post_request.text)
-        access_token = response_data['access_token']
-
-        auth_header = {"Authorization": "Bearer {}".format(access_token)}
-
-        return auth_header
+    return auth_header
 
 
 # -----------------  ACCESSING THE API----------------
 
 def spotify_search( search_type, query, auth_header):
 
-        endpoint = 'https://api.spotify.com/v1/search'
+    endpoint = 'https://api.spotify.com/v1/search'
 
-        data = {'query': query,
-                'type': search_type,
-                'limit': 50
-                }
+    data = {'query': query,
+            'type': search_type,
+            'limit': 50
+           }
 
-        response = requests.get(endpoint, params = data, headers = auth_header)
-        
-        response_json = response.json()
+    response = requests.get(endpoint, params=data, headers=auth_header)
 
-        print(search_type)
+    response_json = response.json()
+
+    print(search_type)
+    filtered = {}
+
+    if search_type == ['artist']:
+        filtered = response_json['artists']['items']
+    elif search_type == ['album']:
+        filtered = response_json['albums']['items']
+    elif search_type == ['playlist']:
+        filtered = response_json['playlists']['items']
+    else:
         filtered = {}
 
-        if search_type == ['artist']:
-                filtered = response_json['artists']['items']
-        elif search_type == ['album']:
-                filtered = response_json['albums']['items']
-        elif search_type == ['playlist']:
-                filtered = response_json['playlists']['items']
-        else:
-                filtered = {}
-
-        print(filtered)
-        return  filtered
-
-
+    print(filtered)
+    return filtered

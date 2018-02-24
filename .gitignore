@@ -102,3 +102,6 @@ ENV/
 
 # Visual Studio Code config
 .vscode/
+
+# App config files
+*config*
