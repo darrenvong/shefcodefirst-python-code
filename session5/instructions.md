@@ -28,20 +28,17 @@ actual credentials):
 ```python
 import os
 
-api_credentials = {
-    # Twitter API configs
-    "twitter_consumer_key": "XXXXX",
-    "twitter_consumer_secret": "XXXXX",
-    "twitter_access_token": "XXXXX",
-    "twitter_access_secret": "XXXXX",
+# The following updates our config (environment) variables to have these values.
 
-    # Spotify API configs
-    "spotify_client_id": "XXXXX",
-    "spotify_client_secret": "XXXXX"
-}
+# Twitter API configs
+os.environ["twitter_consumer_key"] = "XXXXX"
+os.environ["twitter_consumer_secret"] = "XXXXX"
+os.environ["twitter_access_token"] = "XXXXX"
+os.environ["twitter_access_secret"] = "XXXXX"
 
-# Update our config (environment) to have these values
-os.environ.update(api_credentials)
+# Spotify API configs
+os.environ["spotify_client_id"] = "XXXXX"
+os.environ["spotify_client_secret"] = "XXXXX"
 ```
 
 Make sure to save your config file. Also it's super, super important that you **DO NOT add this to GitHub**.
