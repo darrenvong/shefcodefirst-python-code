@@ -13,7 +13,11 @@ def index():
     """ This will be the landing page for the app we will be using:
     this is intended to serve as an app accessing and displaying data from
     APIS"""
-    return render_template('index.html')
+    if 'error' in request.values:
+        # This ensures any errors resulted from a redirect are shown to the user
+        return render_template('index.html', error=request.values['error'])
+    else:
+        return render_template('index.html')
 
 
 # -------------- Functions and decorators for Twitter API queries --------------
@@ -45,22 +49,32 @@ def twitter_search_app():
 def spotify_handler():
     """Spotify Authorisation is done in 5 steps:
      Auth Step 1: Authorisation"""
-    AUTH_URL = get_auth()
-    return redirect(AUTH_URL.url)
+
+    if 'auth_header' not in session:
+        AUTH_URL = get_auth()
+        return redirect(AUTH_URL.url)
+    else:
+        return render_template("spotify.html", auth_header=session['auth_header'],
+                               title="Spotify Search")
 
 @app.route('/callback/')
 def callback():
     """Auth Step 4: Requests refresh and access tokens, make sure this
     callback url is the same as the one you declared in your app and
     your functions"""
-    auth_token = request.args['code']
-    auth_header = authorize_spotify(auth_token)
 
-    # This ensures the user is logged in for the duration of the session
-    session['auth_header'] = auth_header
+    if 'error' in request.values:
+        # Checks for error sent back by Spotify. This mainly happens when the user
+        # cancelled the app's request to connect with their Spotify account
+        return redirect(url_for('index', error=request.values['error']))
+    else:
+        auth_token = request.values['code']
+        auth_header = authorize_spotify(auth_token)
 
-    return render_template("spotify.html", auth_header=auth_header, title="Spotify Search")
+        # This ensures the user is logged in for the duration of the session
+        session['auth_header'] = auth_header
 
+        return redirect(url_for('spotify_handler'))
 
 @app.route("/spotify_search", methods=['POST'])
 def spotify_search_app():
