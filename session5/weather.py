@@ -1,5 +1,5 @@
-import requests
 import json
+import requests
 
 id = "84600bca7507293656495e8972aec659"
 payload = {'q':'Sheffield, UK', 'units':'metric', 'appid':id}
@@ -29,6 +29,6 @@ with open("sample_weather.json", "w") as file:
 
 
 # extracting the data you want
-temperature = data['main']['temp']      # current temperature
-temperature_unit = 'F' if (unit == 'imperial') else 'C'
-conditions = data['weather'][0]['description'] #current weather
+temperature = json_response['main']['temp']      # current temperature
+temperature_unit = 'F' if (payload['units'] == 'imperial') else 'C'
+conditions = json_response['weather'][0]['description'] # current weather

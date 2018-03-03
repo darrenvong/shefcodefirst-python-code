@@ -34,8 +34,8 @@ import config
 def authenticate():
     """This function will use Twitter's app keys provided in the config file
     to authenticate the user if successful, the login will be displayed on the screen"""
-    auth = tweepy.OAuthHandler(os.environ['twitter_consumer_key'],os.environ['twitter_consumer_secret'])
-    auth.set_access_token(os.environ['twitter_access_token'],os.environ['twitter_access_secret'])
+    auth = tweepy.OAuthHandler(os.environ['twitter_consumer_key'], os.environ['twitter_consumer_secret'])
+    auth.set_access_token(os.environ['twitter_access_token'], os.environ['twitter_access_secret'])
 
     twitter_api = tweepy.API(auth)
 
@@ -56,7 +56,7 @@ def collect_tweets(keyword):
     return tweets
 
 
-def stalker(victim, no = 50):
+def stalker(victim, no=50):
     """The user needs to provide a Twitter handle e.g. @ixek to
     query the tweets for that user. If no number is provided
     the query will retrieve the last 50 tweets"""
