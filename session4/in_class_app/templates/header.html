@@ -11,9 +11,22 @@
 
 <body>
   <nav>
+    {##################### Answer to bonus exercise 2 #####################}
+    {# Note that the url_for function can also be used to generate the correct URL
+       patterns we've defined in our Flask app by passing in the name of the functions
+       you defined in Python as the first (and only) argument to the url_for function call
+       (i.e. you don't need the `filename='xxx'` bit afterwards - that's only for generating
+       the correct URL to our CSS/JavaScript)!
+    #}
     <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Contact</li>
+      <a href="{{ url_for('say_hello') }}">
+        <li>Home</li>
+      </a>
+      <a href="{{ url_for('about') }}">
+        <li>About</li>
+      </a>
+      <a href="{{ url_for('contact') }}">
+        <li>Contact</li>
+      </a>
     </ul>
   </nav>

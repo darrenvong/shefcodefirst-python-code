@@ -17,3 +17,20 @@ nav ul li {
   display: inline;
   margin-right: 20px;
 }
+
+/* Answer to bonus exercise 1 - some extra styling to make the contact page form line up
+ * slightly more nicely...
+ */
+* {
+  font-family: Arial, sans-serif;
+}
+
+div {
+  margin: 15px 0;
+}
+
+label {
+  display: inline-block;
+  width: 70px;
+}
+/**************************************************************************************/

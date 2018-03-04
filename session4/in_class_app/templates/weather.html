@@ -1,0 +1,13 @@
+{% include "header.html" %}
+{##################### Answer to bonus exercise 7, 8 #####################}
+
+{% if location %}
+  <h2>{{ location }}</h2>
+{% else %}
+  <h2>Unknown location!</h2>
+{% endif %}
+
+{% if temperature and description %}
+  <h3>Temperature: {{ temperature }}°C</h3>
+  <p>{{ description.capitalize() }}</p>
+{% endif %}

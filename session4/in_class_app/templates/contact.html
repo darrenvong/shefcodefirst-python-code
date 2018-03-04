@@ -1,0 +1,32 @@
+{% include "header.html" %}
+{##################### Answer to bonus exercise 1 #####################}
+{# Note: This form doesn't really need to be working properly here
+  as that's not a requirement in this exercise: the main point really is to get you practising
+  making more HTML templates!
+#}
+  <h1>Contact Me!</h1>
+
+  <p>
+    If you have any general comments about my work on this page, please get in touch and send
+    me a message using the form below!
+  </p>
+  <form action="/feedback" method="post">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" name="name" id="name">
+    </div>
+  
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" name="email" id="email">
+    </div>
+    
+    <div>
+      <label for="comment">Comment: </label>
+      <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Write your comment here...">
+      </textarea>
+    </div>
+    <input type="submit" value="Send!">
+  </form>
+</body>
+</html>

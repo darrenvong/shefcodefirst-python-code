@@ -1,0 +1,21 @@
+{% include "header.html" %}
+{##################### Answer to bonus exercise 4, 5 #####################}
+
+<h1>
+  #ShefCodeFirst
+  {% if role %}
+    {{ role.capitalize() }}
+  {% else %}
+    Members
+  {% endif %}
+</h1>
+
+{% if python_course_members %}
+  <ul>
+    {% for member in python_course_members %}
+      <li>{{ member }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No members found!</p>
+{% endif %}

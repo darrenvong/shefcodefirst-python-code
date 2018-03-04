@@ -1,3 +1,13 @@
+"""
+Sample solution code for the bonus exercises in session 3.
+
+For completeness, the file also include the standard code we covered in class.
+This means that to see the bonus exercise solutions working, you only need to run this file
+as opposed to `app.py` (also included in this repository in case you want a simpler version
+of the app to look at!) which only contains code we covered in class.
+
+@author: Darren Vong
+"""
 from flask import Flask, render_template
 
 app = Flask("my_first_app")
@@ -12,7 +22,7 @@ def say_hello_to(name):
     return render_template("index.html", user=name)
 
 ##################### Answer to bonus exercise 2, 3 #####################
-# In variable route patterns, you can also apply a converter to the captured variable.
+# In variable route patterns, you can also apply a converter to the captured variable(s).
 # So, in this case, both number1 and number2 will be converted to integers.
 # If the user enters anything other than whole numbers, then this route pattern won't
 # be matched.
@@ -34,6 +44,9 @@ def two_variable_pattern_page(number1, number2):
     return render_template("total.html", number1=number1, number2=number2, total=total)
 
 ##################### Answer to bonus exercise 5 #####################
+# Even though `error` may not be used by your custom 404 (Page Not Found) page, Flask
+# still expects the function that handles said error to have exactly one argument, where
+# Flask will pass on the information regarding the error.
 @app.errorhandler(404)
 def not_found(error):
     return render_template("error.html"), 404
