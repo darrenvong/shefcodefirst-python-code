@@ -75,13 +75,9 @@ def show_specific_shefcodefirst_members(role):
                                  load_shefcodefirst_python_members("python_course_members.txt")
                                  if student not in ambassadors and student not in instructors]
     elif role == "ambassadors":
-        python_course_members = [ambassador for ambassador in
-                                 load_shefcodefirst_python_members("python_course_members.txt")
-                                 if ambassador in ambassadors]
+        python_course_members = ambassadors
     elif role == "instructors":
-        python_course_members = [instructor for instructor in
-                                 load_shefcodefirst_python_members("python_course_members.txt")
-                                 if instructor in instructors]
+        python_course_members = instructors
     else:
         python_course_members = []
 

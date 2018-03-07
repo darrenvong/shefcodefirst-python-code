@@ -3,7 +3,7 @@
 
 <h1>
   #ShefCodeFirst
-  {% if role %}
+  {% if role and role in ["students", "ambassadors", "instructors"] %}
     {{ role.capitalize() }}
   {% else %}
     Members
