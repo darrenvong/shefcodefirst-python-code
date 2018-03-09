@@ -18,6 +18,7 @@ app by importing it back in
 - Usage of JavaScript/JQuery to make certain pages of your app more interactive
 - A visually appealing design
 
+
 For inspirations on what you can make, check out the [Giphy Calendar](http://daysofgiphy.herokuapp.com)
-the #ShefCodeFirst team made in Local Hack Day, as well as other winning entries from groups who
+the [#ShefCodeFirst](https://twitter.com/search?src=typd&q=shefcodefirst) team made in Local Hack Day, as well as other winning entries from groups who
 completed Python courses in other parts of the UK with Code First: Girls [here](https://www.codefirstgirls.org.uk/course-competition.html).
