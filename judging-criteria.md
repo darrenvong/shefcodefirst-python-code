@@ -13,7 +13,8 @@ such that it's easy to read
 
 
 **Whilst it's not necessary, it would be nice to see the following things in your app too:**
-- Usage of at least one API to do something with the user's input
+- Usage of at least one API to do something with the user's input, OR the user's input is used to influence some control
+flow/decision making process of the app (say, in an interactive questionnaire, or in a game)
 - Code logically split into more than one Python file. A good example would be that code that
 calls an API should be split into its own file, which can then be re-used in the main Flask
 app by importing it back in
