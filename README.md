@@ -5,7 +5,7 @@
 
 Course materials for the Advanced Python course in Sheffield 🤖
 
-**The contents of this repository were intended for the Spring/Summer 2018 course**
+**The contents of this repository were intended for the Spring/Summer 2019 course**
 
 ## Accessing the course materials
 We have a mini-site that should serve as main point of access for all the course materials
@@ -23,7 +23,7 @@ In order to access this follow the next instructions:
 
 - Create a [GitHub](https://github.com) account
 - Log into your personal account
-- Go to [https://github.com/darrenvong/shefcodefirst-python](https://github.com/darrenvong/shefcodefirst-python),
+- Go to [https://github.com/darrenvong/shefcodefirst-python-code](https://github.com/darrenvong/shefcodefirst-python-code),
 click on the green "clone or download" button and copy the URL in the box.
 - Open GitKraken and click on the folder icon on the top left to bring up the **Repository Management** dialog.
 - Click **Clone**, **Clone with URL** and paste the URL in the box. Choose the "Where to clone to" in a
