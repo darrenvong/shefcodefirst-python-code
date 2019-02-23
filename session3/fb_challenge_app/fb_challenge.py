@@ -7,12 +7,22 @@ def check_identity(name):
     with open("python_course_members.txt") as input_file:
         python_course_members = [member.strip() for member in input_file]
 
-    if name in python_course_members:
-        if name == "Pauline" or name == "Lakshika":
-            return f"{name} is an awesome #ShefCodeFirst ambassador! Go {name}!"
-        elif name == "Darren" or name == "Nina" or name == "Simon":
-            return f"{name} is our awesome #ShefCodeFirst instructor! <3"
-        else:
-            return f"{name} is a student of #ShefCodeFirst's Python course! #WomenInTech"
-    else:
-        return f"We don't know who {name} is! Maybe you typed in the wrong name?"
+    single_role_members = ["Darren", "Laura", "Adam", "Ashwani", "Katjuša", "Lydia"]
+
+    # Message variable needed to hold the message built so far as we don't know how many
+    # roles the name given has until the logic below has been ran through. 
+    message = ""
+
+    name = name.capitalize() # Ensures the first letter of name is in upper case
+
+    if name == "Charlotte" or name == "Lydia":
+        message = f"{name} is an awesome #ShefCodeFirst ambassador! Go {name}!"
+    elif name in ["Darren", "Laura", "Adam", "Ashwani", "Katjuša"]:
+        message = f"{name} is our awesome #ShefCodeFirst Python instructor! <3"
+
+    if name in python_course_members and name not in single_role_members:
+        message += f" {name} is a student of #ShefCodeFirst's Python course! #WomenInTech"
+    elif message == "":
+        message = f"We don't know who {name} is! Maybe you typed in the wrong name?"
+
+    return message

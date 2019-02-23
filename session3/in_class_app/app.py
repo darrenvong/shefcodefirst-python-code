@@ -7,7 +7,7 @@ from flask import Flask, render_template
 # This creates the all important Flask application which will give you the ability
 # to serve (respond) web pages back to your users based on the web address (URL) they
 # typed in the browser
-app = Flask("my_first_app")
+app = Flask(__name__)
 
 # @app.route(...) is a "magic function" (decorator) which upgrades a standard Python
 # function to one which can handle requests from the user when they are visiting this route.

@@ -4,9 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>First flask app</title>
+  <title>First Flask app</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
 </head>
 <body>
+  {% if user %}
+  <h1>Hello {{ user }}!</h1>
+  {% else %}
   <h1>Hello world!</h1>
+  {% endif %}
 </body>
 </html>

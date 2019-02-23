@@ -4,13 +4,13 @@ Sample solution code for the bonus exercises in session 3.
 For completeness, the file also include the standard code we covered in class.
 This means that to see the bonus exercise solutions working, you only need to run this file
 as opposed to `app.py` (also included in this repository in case you want a simpler version
-of the app to look at!) which only contains code we covered in class.
+of the app to look at!).
 
 @author: Darren Vong
 """
 from flask import Flask, render_template
 
-app = Flask("my_first_app")
+app = Flask(__name__)
 
 @app.route("/")
 def say_hello():
@@ -19,7 +19,7 @@ def say_hello():
 ##################### Answer to bonus exercise 1 #####################
 @app.route("/<name>")
 def say_hello_to(name):
-    return render_template("index.html", user=name)
+    return render_template("bonus_index.html", user=name)
 
 ##################### Answer to bonus exercise 2, 3 #####################
 # In variable route patterns, you can also apply a converter to the captured variable(s).
