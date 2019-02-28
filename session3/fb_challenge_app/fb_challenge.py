@@ -10,7 +10,7 @@ def check_identity(name):
     single_role_members = ["Darren", "Laura", "Adam", "Ashwani", "Katjuša", "Lydia"]
 
     # Message variable needed to hold the message built so far as we don't know how many
-    # roles the name given has until the logic below has been ran through. 
+    # roles the name given has until it has been run through the logic below. 
     message = ""
 
     name = name.capitalize() # Ensures the first letter of name is in upper case
