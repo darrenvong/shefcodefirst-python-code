@@ -48,7 +48,7 @@ def contact():
 
 
 ##################### Answer to bonus exercise 4 #####################
-# Notice that we can bind *multiple* app.route URL patterns to a single function!
+# Notice that we can bind *multiple* URL patterns to a single function!
 # In this case, we're doing this to prevent the app from crashing if the user visits this
 # specific URL pattern with a slash at the end!
 @app.route("/shefcodefirst-members")
