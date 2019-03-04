@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>First Flask app</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+
+<body>
+  <nav>
+    {##################### Answer to bonus exercise 2 #####################}
+    {# Note that the url_for function can also be used to generate the correct URL
+       patterns we've defined in our Flask app by passing in the name of the functions
+       you defined in Python as the first (and only) argument to the url_for function call
+       (i.e. you don't need the `filename='xxx'` bit afterwards - that's only for generating
+       the correct URL to our CSS/JavaScript)!
+    #}
+    <ul>
+      <a href="{{ url_for('say_hello') }}">
+        <li>Home</li>
+      </a>
+      <a href="{{ url_for('about') }}">
+        <li>About</li>
+      </a>
+      <a href="{{ url_for('contact') }}">
+        <li>Contact</li>
+      </a>
+    </ul>
+  </nav>

@@ -12,7 +12,7 @@ def say_hello():
 def say_hello_to(name):
     # "name" in the function's argument HAS TO match that defined
     # in the <name> variable URL pattern
-    return render_template("hello.html", user=name)
+    return render_template("index.html", user=name)
 
 @app.route("/feedback", methods=["POST"])
 def get_feedback():
