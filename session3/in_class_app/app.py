@@ -18,7 +18,8 @@ def say_hello():
     return "Hello world!"
 
     # As we moved through the slides, we replaced the line above with the line
-    # below. Comment out the line above and uncomment the line below to see the
+    # below. Comment out the line above (by putting a # before "return") and
+    # uncomment the line below (by removing the # before "return") to see the
     # difference when visiting "localhost:5000" (you should see a larger "Hello world!")
 
     # return render_template("index.html")

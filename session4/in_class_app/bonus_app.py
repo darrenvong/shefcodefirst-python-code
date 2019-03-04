@@ -59,21 +59,20 @@ def show_shefcodefirst_members():
 
 
 ##################### Answer to bonus exercise 5 #####################
-# In hindsight... you could have completed the exercise with one function rather than three as
-# suggested when I first wrote it if you define the URL pattern more cleverly like the following:
 @app.route("/shefcodefirst-members/<role>")
 def show_specific_shefcodefirst_members(role):
     # The main lists of people to filter the bigger members list against...
-    ambassadors = ["Lakshika", "Pauline"]
-    instructors = ["Darren", "Nina", "Simon"]
+    ambassadors = ["Charlotte", "Lydia"]
+    instructors = ["Darren", "Laura", "Adam", "Ashwani", "Katjuša"]
 
     # Ensures "role" is in all lower-cased letter before we perform the comparison below...
     role = role.lower()
 
     if role == "students":
-        python_course_members = [student for student in
+        python_course_members = [member for member in
                                  load_shefcodefirst_python_members("python_course_members.txt")
-                                 if student not in ambassadors and student not in instructors]
+                                 if member == "Charlotte" or
+                                 (member not in ambassadors and member not in instructors)]
     elif role == "ambassadors":
         python_course_members = ambassadors
     elif role == "instructors":
@@ -90,7 +89,10 @@ def show_specific_shefcodefirst_members(role):
 def show_weather(location):
     location = location.capitalize()
     loc_specific_weather_data = {}
-    for weather_data_dict in load_weather_data("../weather_data.json")["data"]:
+
+    # Loops through the list of weather forecast data dictionaries to see if
+    # any matches the location provided in the URL by the user
+    for weather_data_dict in load_weather_data("./weather_data.json")["data"]:
         if weather_data_dict["name"] == location:
             loc_specific_weather_data = weather_data_dict
             # Found the specific location's weather data, so we can safely break out of loop early
