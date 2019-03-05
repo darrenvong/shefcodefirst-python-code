@@ -18,8 +18,9 @@ nav ul li {
   margin-right: 20px;
 }
 
-/* Answer to bonus exercise 1 - some extra styling to make the contact page form line up
- * slightly more nicely...
+/**************************** Answer to bonus exercise 1 **********************************/
+/* Some extra styling to make the contact page form line up
+ * slightly more nicely... (this is also how you can write comments in your CSS!)
  */
 * {
   font-family: Arial, sans-serif;

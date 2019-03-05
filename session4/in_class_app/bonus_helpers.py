@@ -11,17 +11,19 @@ across other files should the needs arise when the app becomes more sophisticate
 """
 import json
 
-##################### Answer to bonus exercise 3 #####################
+##################### Answer to bonus exercise 4 #####################
 def load_shefcodefirst_python_members(file_path):
     """Given the `file_path` to the file containing a list of #ShefCodeFirst Python
     course members, this function loads them into a list and return such list back."""
-
-    with open(file_path) as input_file:
+    
+    # Explicitly open file with the UTF-8 encoding to ensure non-standard English characters
+    # show up properly too!
+    with open(file_path, encoding="utf-8") as input_file:
         python_course_members = [member.strip() for member in input_file]
     return python_course_members
 
 
-##################### Answer to bonus exercise 6 #####################
+##################### Answer to bonus exercise 7 #####################
 def load_weather_data(file_path):
     """Given the `file_path` to the file containing the weather data in JSON format,
     this function loads the data back into a dictionary and returns it."""

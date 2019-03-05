@@ -47,7 +47,7 @@ def contact():
     return render_template("contact.html")
 
 
-##################### Answer to bonus exercise 4 #####################
+##################### Answer to bonus exercise 5 #####################
 # Notice that we can bind *multiple* URL patterns to a single function!
 # In this case, we're doing this to prevent the app from crashing if the user visits this
 # specific URL pattern with a slash at the end!
@@ -58,7 +58,7 @@ def show_shefcodefirst_members():
     return render_template("shefcodefirst_members.html", python_course_members=python_course_members)
 
 
-##################### Answer to bonus exercise 5 #####################
+##################### Answer to bonus exercise 6 #####################
 @app.route("/shefcodefirst-members/<role>")
 def show_specific_shefcodefirst_members(role):
     # The main lists of people to filter the bigger members list against...
@@ -84,7 +84,7 @@ def show_specific_shefcodefirst_members(role):
                            python_course_members=python_course_members, role=role)
 
 
-##################### Answer to bonus exercise 7, 8 #####################
+##################### Answer to bonus exercise 8, 9 #####################
 @app.route("/weather/<location>")
 def show_weather(location):
     location = location.capitalize()
@@ -104,7 +104,7 @@ def show_weather(location):
                                temperature=loc_specific_weather_data["temperature"],
                                description=loc_specific_weather_data["description"])
     else:
-        return render_template("weather.html"), 404
+        return render_template("weather.html", location=location), 404
 
 # Passing in "debug=True" as an (keyword) argument to app.run(...) will make your Flask powered
 # server/application refreshes automatically when you make any changes to this file.

@@ -1,13 +1,11 @@
-{% include "header.html" %}
+{% include "bonus_header.html" %}
 {##################### Answer to bonus exercise 7, 8 #####################}
 
-{% if location %}
+{% if temperature and description %}
   <h2>{{ location }}</h2>
+  <h3>Temperature: {{ temperature }}°C</h3>
+  <p>{{ description.capitalize() }}</p>
 {% else %}
   <h2>Sorry, we don't know the weather forecast for {{ location }}.</h2>
 {% endif %}
 
-{% if temperature and description %}
-  <h3>Temperature: {{ temperature }}°C</h3>
-  <p>{{ description.capitalize() }}</p>
-{% endif %}

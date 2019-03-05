@@ -4,7 +4,12 @@
   {{ form_data["name"] }} sent the email address:
   {{ form_data["email"] }}
 
-  {# The following part is needed to show the comment sent by the user #}
+  {##################### Answer to bonus exercise 1 #####################}
+  {#
+    (Optional) If, like me, you've created a contact form for the contact page,
+    the following part is needed to show the comment sent by the user
+    (assuming you have an <input> or <textarea> tag with an attribute name of "comment")
+  #}
   {% if form_data["comment"] %}
   with the comment: {{ form_data["comment"] }}
   {% endif %}

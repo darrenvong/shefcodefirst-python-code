@@ -1,5 +1,5 @@
 def check_identity(name):
-    """Given a name as an argument, prints out who they are and
+    """Given a name as an argument, returns a message saying who they are and
     what their role is on the #ShefCodeFirst Python course."""
 
     # Reading in a file into a list containing #ShefCodeFirst Python course members, so
