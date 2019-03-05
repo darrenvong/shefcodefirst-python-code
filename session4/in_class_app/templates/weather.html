@@ -4,7 +4,7 @@
 {% if location %}
   <h2>{{ location }}</h2>
 {% else %}
-  <h2>Unknown location!</h2>
+  <h2>Sorry, we don't know the weather forecast for {{ location }}.</h2>
 {% endif %}
 
 {% if temperature and description %}

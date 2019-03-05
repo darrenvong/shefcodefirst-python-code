@@ -16,9 +16,7 @@ def load_shefcodefirst_python_members(file_path):
     """Given the `file_path` to the file containing a list of #ShefCodeFirst Python
     course members, this function loads them into a list and return such list back."""
 
-    # Explicitly open file with the UTF-8 encoding to ensure non-standard English characters
-    # show up properly too!
-    with open(file_path, encoding="utf-8") as input_file:
+    with open(file_path) as input_file:
         python_course_members = [member.strip() for member in input_file]
     return python_course_members
 

@@ -3,6 +3,11 @@
 <p>
   {{ form_data["name"] }} sent the email address:
   {{ form_data["email"] }}
+
+  {# The following part is needed to show the comment sent by the user #}
+  {% if form_data["comment"] %}
+  with the comment: {{ form_data["comment"] }}
+  {% endif %}
 </p>
 
 </body>

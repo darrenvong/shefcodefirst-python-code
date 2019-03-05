@@ -4,7 +4,7 @@ def check_identity(name):
 
     # Reading in a file into a list containing #ShefCodeFirst Python course members, so
     # either they are a student, an instructor or an ambassador
-    with open("python_course_members.txt") as input_file:
+    with open("python_course_members.txt", encoding="utf-8") as input_file:
         python_course_members = [member.strip() for member in input_file]
 
     if name == "Charlotte" or name == "Lydia":
