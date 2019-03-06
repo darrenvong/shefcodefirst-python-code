@@ -11,7 +11,7 @@ of the app to look at!) which only contains code we covered in class.
 from flask import Flask, render_template, request
 from bonus_helpers import load_shefcodefirst_python_members, load_weather_data
 
-app = Flask("my_first_app")
+app = Flask(__name__)
 
 
 @app.route("/")

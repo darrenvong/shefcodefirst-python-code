@@ -2,7 +2,7 @@
 A collection of helper functions which contribute towards the solutions for some
 of the bonus exercises in session 4.
 
-In general, it is good practise to separate out code from app.py that aren't needed directly to
+In general, it is good practice to separate out code from app.py that aren't needed directly to
 send back a response to the user, so that file doesn't become too cluttered! By separating out
 functions used indirectly into its own file such as this, it also means your code can be re-used
 across other files should the needs arise when the app becomes more sophisticated/complicated!

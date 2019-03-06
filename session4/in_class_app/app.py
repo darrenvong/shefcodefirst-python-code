@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-app = Flask("my_first_app")
+app = Flask(__name__)
 
 @app.route("/")
 def say_hello():
