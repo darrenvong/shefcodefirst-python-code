@@ -14,61 +14,9 @@
 
   <!-- CSS Files -->
   <link href={{ url_for("static", filename="css/bootstrap.min.css") }} rel="stylesheet" />
-  <link href={{ url_for("static", filename="css/material-kit.css") }} rel="stylesheet"/>
+  <link href={{ url_for("static", filename="css/material-kit.css") }} rel="stylesheet" />
 
-  <style media="screen">
-  .img-circle{
-    width: 120px;
-    height: 120px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-    object-fit: cover;
-    overflow: hidden;
-  }
-
-  .talk{
-    text-align: center;
-  }
-  a.no-underline,
-  a.no-underline:hover {
-  border: 0;
-  }
-
-.img-talk{
-  border-style: solid;
-  border-width: 2px;
-  width: 300px;
-  border-radius: 3px;
-  border-color: #3C4858;
-  margin: 20px;
-}
-
-.info-text {
-  font-size: 20px;
-}
-
-form {
-  padding-bottom: 25px;
-}
-
-button.btn, button.btn:hover {
-  background-color: #8E24AA;
-}
-
-#not-logged-in {
-  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-}
-
-#dismiss {
-  top: -15px;
-  right: -5px;
-  font-size: 24px;
-}
-</style>
+  <link href={{ url_for("static", filename="css/custom.css") }} rel="stylesheet" />
 </head>
 
 <body class="profile-page">
@@ -84,39 +32,13 @@ button.btn, button.btn:hover {
         <span class="icon-bar"></span>
       </button>
 
-
-      <a class="navbar-brand" href="/">
-      #ShefCodeFirst Demo App</a>
+      <a class="navbar-brand" href="/">#ShefCodeFirst Demo App</a>
     </div>
-
-    <div class="collapse navbar-collapse" id="navigation-website">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="https://ss18cfgshefpython.slack.com/" target="_blank"
-          class="btn btn-simple btn-white btn-just-icon">
-          <i class="fa fa-slack" aria-hidden="true"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://twitter.com/search?src=typd&q=shefcodefirst" target="_blank"
-          class="btn btn-simple btn-white btn-just-icon">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/groups/803069303236463/"
-        target="_blank" class="btn btn-simple btn-white btn-just-icon">
-        <i class="fa fa-facebook-square"></i>
-      </a>
-    </li>
-
-  </ul>
-</div>
 </div>
 </nav>
 
 <div class="wrapper">
-  <div class="header header-filter" style="background-image: url('{{ url_for("static", filename="img/python.jpg") }}');
-  background-repeat: no-repeat; background-position: 100% 100%;">
+  {% set background_img_url = url_for("static", filename="img/python.jpg") %}
+  <div class="header header-filter" style="background-image: url('{{ background_img_url }}');
+    background-repeat: no-repeat; background-position: 100% 100%;">
   </div>

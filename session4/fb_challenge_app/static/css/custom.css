@@ -1,0 +1,51 @@
+.img-circle {
+  width: 120px;
+  height: 120px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.talk {
+  text-align: center;
+}
+a.no-underline,
+a.no-underline:hover {
+  border: 0;
+}
+
+.img-talk {
+  border-style: solid;
+  border-width: 2px;
+  width: 300px;
+  border-radius: 3px;
+  border-color: #3C4858;
+  margin: 20px;
+}
+
+.info-text {
+  font-size: 20px;
+}
+
+form {
+  padding-bottom: 25px;
+}
+
+button.btn, button.btn:hover {
+  background-color: #8E24AA;
+}
+
+#not-logged-in {
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+#dismiss {
+  top: -15px;
+  right: -5px;
+  font-size: 24px;
+}
