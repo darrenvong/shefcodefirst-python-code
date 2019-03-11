@@ -13,22 +13,6 @@ Note that in order to use the various functions here you have to authenticate fi
 
 import os
 import tweepy
-import config
-
-# This will load the configuration variables for the API's
-# def get_config():
-#     """This function checks if there is a configuration file
-#     and if so loads the keys stored in it. Note the config file can have
-#     extension .py, .ini. yaml .json
-#     The method to access it should be changed accordingly to the
-#     type of file you have in your project"""
-#     if not os.path.isfile('config.yml'):
-#         print('No config file found, make sure you have one')
-#     else:
-#         with open("config.yml", 'r') as ymlfile:
-#             keys = yaml.load(ymlfile)
-
-#     return keys
 
 
 def authenticate():

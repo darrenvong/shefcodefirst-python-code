@@ -1,10 +1,13 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, render_template, request, redirect, session, url_for
 from helpers.twitter import authenticate, collect_tweets
 from helpers.spotify import  authorize_spotify, spotify_search, get_auth
 from helpers.NASA import get_APOD
 
 
-app = Flask("APIs query for CFG")
+app = Flask(__name__)
 session = {}
 
 # -------------- This is what you will see straight away when you start the app --------------

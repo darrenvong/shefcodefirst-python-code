@@ -18,7 +18,6 @@ import os
 import requests
 
 import json
-import config
 
 # ******* All of the needed URLS and functions to use the Spotify API ****
 

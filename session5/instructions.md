@@ -22,23 +22,27 @@ Once you have updated your local repository you should be able to see a `session
 
 The first thing we need to do is to make sure that you have the appropriate credentials to access the APIs. We are going to save these in the `config.py` file which will then be accessed by the app to authenticate the user.
 
-## Setting your credentials
-Create a new file named `config.py` and enter the following (replacing the 'XXXXX' with your
-actual credentials):
-```python
-import os
+## Installing the required library
+Make sure you have the following libraries installed by using `pip install <library_name>`, replacing
+`<library_name>` with the following:
+- `requests`
+- `python-dotenv`
 
+## Setting your credentials
+Create a new file named `.env` inside the `CFG_app` folder **next to `app.py`** and enter
+the following (replacing the 'XXXXX' with your actual credentials):
+```
 # The following updates our config (environment) variables to have these values.
 
 # Twitter API configs
-os.environ["twitter_consumer_key"] = "XXXXX"
-os.environ["twitter_consumer_secret"] = "XXXXX"
-os.environ["twitter_access_token"] = "XXXXX"
-os.environ["twitter_access_secret"] = "XXXXX"
+twitter_consumer_key="XXXXX"
+twitter_consumer_secret="XXXXX"
+twitter_access_token="XXXXX"
+twitter_access_secret="XXXXX"
 
 # Spotify API configs
-os.environ["spotify_client_id"] = "XXXXX"
-os.environ["spotify_client_secret"] = "XXXXX"
+spotify_client_id="XXXXX"
+spotify_client_secret="XXXXX"
 ```
 
 Make sure to save your config file. Also it's super, super important that you **DO NOT add this to GitHub**.
