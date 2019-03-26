@@ -1,6 +1,6 @@
 import requests
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -33,7 +33,7 @@ def add_favourite():
     )
     data = response.json()
     print(data)
-    return '{}! Go back!'.format(data['message'])
+    return '{}! <a href="{}">Go back!</a>'.format(data['message'], url_for('index'))
 
 @app.route('/fav')
 def see_favourites():
